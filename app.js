@@ -22,19 +22,19 @@ bot.on("message", async function (event) {
 	// event.message.text是使用者傳給bot的訊息
 	// 使用event.reply(要回傳的訊息)方法可將訊息回傳給使用者
 	const text = event.message.text.split("\n");
-	if (text[0] === "warn") {
+	if (text[0] === "warn" || text[0] === "注意") {
 		event
-			.reply(["已經收到您的請求。", "嗷嗚嗚"])
-			.then(function (data) {
-				// 當訊息成功回傳後的處理
-			})
-			.catch(function (error) {
-				// 當訊息回傳失敗後的處理
-				console.log(error);
-			});
+		.reply(["很緊急嗎！", "我沒辦法啦嗷嗚嗚"])
+		.then(function (data) {
+			// 當訊息成功回傳後的處理
+		})
+		.catch(function (error) {
+			// 當訊息回傳失敗後的處理
+			console.log(error);
+		});
 	} else {
 		event
-			.reply(["嗷嗷", "嗷嗚嗚嗚嗚"])
+			.reply(["收到您的請求", event.message.text, "嗷嗚嗚"])
 			.then(function (data) {
 				// 當訊息成功回傳後的處理
 			})
