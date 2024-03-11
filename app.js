@@ -9,10 +9,10 @@ const app = express();
 
 //line bot
 const bot = linebot({
-	channelId: "2004027524",
-	channelSecret: "9de54acc1abb742144fe4d7d6582ce82",
+	channelId: "2004032391",
+	channelSecret: "92090978ece68784b62265577c4c961c",
 	channelAccessToken:
-		"Xwj/Hv3jVAfd9W9Rnw4aL7XJq2mg3F6Db8W+bvX7bOQkGb6XnZpqKVN6zOd1A/loELo1sMkHyj7VaOCs9zIMiDHsgSgDgj2WwQeRmMThwj0G26tjJIk0ijgCVW0aobb1Mbjn/DW4rb/v39kmciTYEgdB04t89/1O/w1cDnyilFU=",
+		"F7MukU7XXzGEgJJ/R9lyXv9u9US8TkLqehTsPHai9a5Fq2N95L44MUWJjv9Rt1NHTgtqrb/EKh97zKSvciy+r3m8kSYfe2OtgSn0+Lu3mDVEzBuwhH5pRFFKASoyzNH3GmX3BtYGuCEzoJpr7BhUMgdB04t89/1O/w1cDnyilFU=",
 });
 const linebotParser = bot.parser();
 app.post("/linewebhook", linebotParser);
@@ -24,23 +24,23 @@ bot.on("message", async function (event) {
 	const text = event.message.text.split("\n");
 	if (text[0] === "warn") {
 		event
-			.reply(['已經收到您的請求。','嗷嗚嗚'])
+			.reply(["已經收到您的請求。", "嗷嗚嗚"])
 			.then(function (data) {
 				// 當訊息成功回傳後的處理
 			})
 			.catch(function (error) {
 				// 當訊息回傳失敗後的處理
-				console.log(error)
+				console.log(error);
 			});
-	}else{
+	} else {
 		event
-			.reply(['嗷嗷','嗷嗚嗚嗚嗚'])
+			.reply(["嗷嗷", "嗷嗚嗚嗚嗚"])
 			.then(function (data) {
 				// 當訊息成功回傳後的處理
 			})
 			.catch(function (error) {
 				// 當訊息回傳失敗後的處理
-				console.log(error)
+				console.log(error);
 			});
 	}
 });
