@@ -47,6 +47,20 @@ bot.on("message", async function (event) {
 						});
 				})
 				.catch((err) => console.log(err));
+		} else if (text[1] === "來點好話" || text[1] === "雞湯" || text[1] === "負能量") {
+			axios("https://soul-soup.fe.workers.dev")
+				.then((res) => {
+					event
+						.reply(["呼呼.....", res.data.title])
+						.then(function (data) {
+							// 當訊息成功回傳後的處理
+						})
+						.catch(function (error) {
+							// 當訊息回傳失敗後的處理
+							console.log(error);
+						});
+				})
+				.catch((err) => console.log(err));
 		} else {
 			event
 				.reply(["收到ㄌ", event.message.text, "嗷嗚嗚"])
