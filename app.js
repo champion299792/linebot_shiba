@@ -22,26 +22,42 @@ bot.on("message", async function (event) {
 	// event.message.text是使用者傳給bot的訊息
 	// 使用event.reply(要回傳的訊息)方法可將訊息回傳給使用者
 	const text = event.message.text.split("\n");
-	if (text[0] === "warn" || text[0] === "注意") {
-		event
-		.reply(["很緊急嗎！", "我沒辦法啦嗷嗚嗚"])
-		.then(function (data) {
-			// 當訊息成功回傳後的處理
-		})
-		.catch(function (error) {
-			// 當訊息回傳失敗後的處理
-			console.log(error);
-		});
-	} else {
-		event
-			.reply(["收到您的請求", event.message.text, "嗷嗚嗚"])
-			.then(function (data) {
-				// 當訊息成功回傳後的處理
-			})
-			.catch(function (error) {
-				// 當訊息回傳失敗後的處理
-				console.log(error);
-			});
+	if (text[0] === "狗子" || text[0] === "柴柴" || text[0] === "柴犬") {
+		if (text[1] === "warn" || text[1] === "注意" || text[1] === "工作") {
+			event
+				.reply(["很緊急嗎！", "我沒辦法啦嗷嗚嗚"])
+				.then(function (data) {
+					// 當訊息成功回傳後的處理
+				})
+				.catch(function (error) {
+					// 當訊息回傳失敗後的處理
+					console.log(error);
+				});
+		} else if (text[1] === "吟詩") {
+			axios("https://v1.jinrishici.com/all.json")
+				.then((res) => {
+					event
+						.reply(["嗷嗷！", res.data.content])
+						.then(function (data) {
+							// 當訊息成功回傳後的處理
+						})
+						.catch(function (error) {
+							// 當訊息回傳失敗後的處理
+							console.log(error);
+						});
+				})
+				.catch((err) => console.log(err));
+		} else {
+			event
+				.reply(["收到ㄌ", event.message.text, "嗷嗚嗚"])
+				.then(function (data) {
+					// 當訊息成功回傳後的處理
+				})
+				.catch(function (error) {
+					// 當訊息回傳失敗後的處理
+					console.log(error);
+				});
+		}
 	}
 });
 
